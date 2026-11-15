@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" href="data:," />
     <title>Maya Chess Dashboard</title>
     <meta name="description" content="Maya Davidyan's US Chess record: ratings, the climb from 386 to 645, game stats, Top 100 track, and tournament history." />
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       :root {
+        color-scheme: light;
         --bg: #eef6ff;
         --surface: #dcefff;
         --surface-2: #a9d6f5;
@@ -31,28 +32,7 @@
         --shadow: 0 1px 2px rgba(11, 42, 91, .08), 0 8px 24px rgba(11, 42, 91, .10);
         --radius: 14px;
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #071e42;
-          --surface: #123b7a;
-          --surface-2: #1d4e96;
-          --ink: #eaf4ff;
-          --ink-soft: #a9d6f5;
-          --line: #2a5f9e;
-          --felt: #0b2a5b;
-          --felt-deep: #061a3a;
-          --felt-ink: #ffffff;
-          --felt-soft: #a9d6f5;
-          --walnut: #a9d6f5;
-          --walnut-soft: #7ab8f0;
-          --gold: #7ab8f0;
-          --win: #7ed492;
-          --loss: #ff9a94;
-          --draw: #c4d6ec;
-          --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
-        }
-      }
-      * { box-sizing: border-box; }
+            * { box-sizing: border-box; }
       html { -webkit-text-size-adjust: 100%; }
       body {
         margin: 0;
@@ -64,8 +44,7 @@
       }
       h1, h2, h3 { font-family: "Spectral", Georgia, serif; margin: 0; }
       a { color: var(--felt); }
-      @media (prefers-color-scheme: dark) { a { color: var(--gold); } }
-      .wrap { max-width: 1020px; margin: 0 auto; padding: 0 18px 56px; }
+            .wrap { max-width: 1020px; margin: 0 auto; padding: 0 18px 56px; }
 
       /* ---------- Hero band ---------- */
       .hero {
@@ -109,8 +88,7 @@
         display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
         background: var(--surface-2); color: var(--walnut); border-radius: 6px; padding: 2px 8px; margin-left: 6px; vertical-align: 3px;
       }
-      @media (prefers-color-scheme: dark) { .badge-prov { color: var(--gold); } }
-      .online-note { margin-top: 12px; font-size: .9rem; color: var(--ink-soft); }
+            .online-note { margin-top: 12px; font-size: .9rem; color: var(--ink-soft); }
 
       /* ---------- Sections ---------- */
       section { margin-top: 42px; }
@@ -137,11 +115,7 @@
       .chart-svg .pt-lbl { fill: var(--ink); font-size: 13.5px; font-weight: 700; font-family: "Public Sans", sans-serif; }
       .chart-svg .line-reg { stroke: var(--felt); }
       .chart-svg .line-qck { stroke: var(--walnut); }
-      @media (prefers-color-scheme: dark) {
-        .chart-svg .line-reg { stroke: #a9d6f5; }
-        .chart-svg .line-qck { stroke: #3e8ede; }
-      }
-      .chart-foot { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 12px; font-size: .92rem; color: var(--ink-soft); }
+            .chart-foot { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 12px; font-size: .92rem; color: var(--ink-soft); }
       .chart-foot strong { color: var(--ink); }
 
       /* ---------- Stats ---------- */
@@ -194,16 +168,14 @@
 
       /* ---------- Tournaments ---------- */
       :root { --maya-bg: rgba(11, 42, 91, .14); }
-      @media (prefers-color-scheme: dark) { :root { --maya-bg: rgba(169, 214, 245, .22); } }
-      .pill {
+            .pill {
         display: inline-flex; align-items: center; gap: 7px; flex: none;
         font-size: .8rem; font-weight: 700; border-radius: 999px; padding: 4px 12px; white-space: nowrap;
       }
       .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #7ed492; flex: none; }
       .pill-live { background: var(--felt); color: var(--felt-ink); }
       .pill-open { background: var(--surface-2); color: var(--walnut); border: 1px solid var(--line); }
-      @media (prefers-color-scheme: dark) { .pill-open { color: var(--gold); } }
-      .tcards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+            .tcards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
       .tcard {
         display: block; text-decoration: none; color: var(--ink);
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
@@ -214,20 +186,17 @@
       .tcard-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
       .tcard h3 { font-size: 1.22rem; font-weight: 700; line-height: 1.25; }
       .tcard-date { margin: 8px 0 0; font-weight: 600; color: var(--felt); }
-      @media (prefers-color-scheme: dark) { .tcard-date { color: var(--gold); } }
-      .tcard-venue { margin: 4px 0 0; color: var(--ink-soft); font-size: .93rem; }
+            .tcard-venue { margin: 4px 0 0; color: var(--ink-soft); font-size: .93rem; }
       .tcard-meta { margin: 10px 0 0; font-size: .95rem; }
       .tcard-cta { display: inline-block; margin-top: 12px; font-weight: 700; color: var(--felt); }
-      @media (prefers-color-scheme: dark) { .tcard-cta { color: var(--gold); } }
-
+      
       /* ---------- Tournament page ---------- */
       #view-tournament .wrap { padding-top: 22px; }
       .back-link { display: inline-flex; align-items: center; min-height: 40px; font-weight: 700; text-decoration: none; }
       .back-link:hover { text-decoration: underline; }
       .t-head h2 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 700; line-height: 1.15; margin-top: 4px; }
       .t-date { margin: 8px 0 0; font-weight: 600; color: var(--felt); font-size: 1.05rem; }
-      @media (prefers-color-scheme: dark) { .t-date { color: var(--gold); } }
-      .t-status { margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+            .t-status { margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
       .t-status .status-text { color: var(--ink-soft); }
       .t-details { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px; margin-top: 20px; }
       .t-details .dt-l { font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); font-weight: 700; }
@@ -238,8 +207,7 @@
         border-radius: 999px; border: 1.5px solid var(--felt); color: var(--felt);
         font-weight: 700; text-decoration: none;
       }
-      @media (prefers-color-scheme: dark) { .t-link-btn { border-color: var(--gold); } }
-      .t-link-btn:hover { text-decoration: underline; }
+            .t-link-btn:hover { text-decoration: underline; }
       .t-sec-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
       .t-sec-note { color: var(--ink-soft); font-size: .92rem; margin: 0 0 12px; }
       .t-foot { margin-top: 30px; font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 16px; }
@@ -272,8 +240,7 @@
         background: var(--surface-2); color: var(--walnut); border: 1px solid var(--line);
         border-radius: 999px; padding: 4px 12px; min-height: 32px;
       }
-      @media (prefers-color-scheme: dark) { .h2h-badge { color: var(--gold); } }
-      .h2h-badge:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+            .h2h-badge:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
       .h2h-caret { transition: transform .15s ease; }
       .h2h-badge[aria-expanded="true"] .h2h-caret { transform: rotate(180deg); }
       .h2h-detail { margin-top: 8px; font-size: .88rem; color: var(--ink-soft); border-top: 1px dashed var(--line); padding-top: 7px; text-align: left; }
@@ -388,29 +355,7 @@
       footer .src { color: #dcefff; }
       footer .src .live-dot, footer .src.live .live-dot { color: #7ed492; }
       .foot-links a { color: #ffffff; }
-      @media (prefers-color-scheme: dark) {
-        a { color: #a9d6f5; }
-        .sec-head h2, .t-sec-title, .t-head h2 { color: #eaf4ff; }
-        .card, .tcard, .other-sec { background: #123b7a; border-color: #2a5f9e; }
-        thead th { background: #061a3a; color: #ffffff; }
-        tbody tr:nth-child(even) td { background: rgba(169, 214, 245, .12); }
-        .focus-table tr.is-maya td { background: rgba(169, 214, 245, .22); }
-        .sys-tag { background: #1d4e96; color: #dcefff; }
-        .chart-svg .line-reg { stroke: #a9d6f5; }
-        .chart-svg .line-qck { stroke: #3e8ede; }
-        .chart-svg .grid { stroke: #2a5f9e; }
-        .toggle { background: #0b2a5b; color: #a9d6f5; border-color: #2a5f9e; }
-        .toggle[aria-pressed="true"] { background: #a9d6f5; border-color: #a9d6f5; color: #0b2a5b; }
-        .tcard-date, .t-date { color: #a9d6f5; }
-        .tcard-cta { color: #ffffff; }
-        .pill-open { background: #1d4e96; color: #dcefff; border-color: #2a5f9e; }
-        .h2h-badge { background: #1d4e96; color: #dcefff; border-color: #2a5f9e; }
-        .t-link-btn { border-color: #a9d6f5; color: #a9d6f5; background: transparent; }
-        .ratings .rcard:last-child { background: #a9d6f5; color: #0b2a5b; }
-        .tp .pt { background: #123b7a; }
-        .tp.current .pt { background: #a9d6f5; border-color: #a9d6f5; }
-      }
-    </style>
+          </style>
   </head>
   <body>
     <div id="view-home">
