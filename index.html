@@ -12,43 +12,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #f4efe6;
-        --surface: #fffdf8;
-        --surface-2: #ece4d3;
-        --ink: #23201a;
-        --ink-soft: #5c5546;
-        --line: #d9cfb8;
-        --felt: #1e4d33;
-        --felt-deep: #143626;
-        --felt-ink: #f3ecd9;
-        --felt-soft: #b9cdbd;
-        --walnut: #8a5a2b;
-        --walnut-soft: #b98a4e;
-        --gold: #c9973f;
-        --win: #2e7d46;
-        --loss: #b4443c;
-        --draw: #8a7a52;
-        --shadow: 0 1px 2px rgba(35, 32, 26, .06), 0 8px 24px rgba(35, 32, 26, .07);
+        --bg: #eef6ff;
+        --surface: #dcefff;
+        --surface-2: #a9d6f5;
+        --ink: #0b2a5b;
+        --ink-soft: #35507a;
+        --line: #8fbee8;
+        --felt: #0b2a5b;
+        --felt-deep: #123b7a;
+        --felt-ink: #ffffff;
+        --felt-soft: #a9d6f5;
+        --walnut: #123b7a;
+        --walnut-soft: #3e8ede;
+        --gold: #3e8ede;
+        --win: #1e7a34;
+        --loss: #b42318;
+        --draw: #5a6b84;
+        --shadow: 0 1px 2px rgba(11, 42, 91, .08), 0 8px 24px rgba(11, 42, 91, .10);
         --radius: 14px;
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --bg: #141a16;
-          --surface: #1e2620;
-          --surface-2: #28312a;
-          --ink: #ece7d8;
-          --ink-soft: #a89f8a;
-          --line: #3a443c;
-          --felt: #123324;
-          --felt-deep: #0c2418;
-          --felt-ink: #f3ecd9;
-          --felt-soft: #9db8a5;
-          --walnut: #c99a5b;
-          --walnut-soft: #a97e45;
-          --gold: #d9ab55;
-          --win: #6fc48a;
-          --loss: #e08a82;
-          --draw: #b3a06e;
+          --bg: #071e42;
+          --surface: #123b7a;
+          --surface-2: #1d4e96;
+          --ink: #eaf4ff;
+          --ink-soft: #a9d6f5;
+          --line: #2a5f9e;
+          --felt: #0b2a5b;
+          --felt-deep: #061a3a;
+          --felt-ink: #ffffff;
+          --felt-soft: #a9d6f5;
+          --walnut: #a9d6f5;
+          --walnut-soft: #7ab8f0;
+          --gold: #7ab8f0;
+          --win: #7ed492;
+          --loss: #ff9a94;
+          --draw: #c4d6ec;
           --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
         }
       }
@@ -138,8 +138,8 @@
       .chart-svg .line-reg { stroke: var(--felt); }
       .chart-svg .line-qck { stroke: var(--walnut); }
       @media (prefers-color-scheme: dark) {
-        .chart-svg .line-reg { stroke: #6fc48a; }
-        .chart-svg .line-qck { stroke: #d9a45f; }
+        .chart-svg .line-reg { stroke: #a9d6f5; }
+        .chart-svg .line-qck { stroke: #3e8ede; }
       }
       .chart-foot { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 12px; font-size: .92rem; color: var(--ink-soft); }
       .chart-foot strong { color: var(--ink); }
@@ -193,8 +193,8 @@
       .foot-links a:hover { text-decoration: underline; }
 
       /* ---------- Tournaments ---------- */
-      :root { --maya-bg: rgba(30, 77, 51, .09); }
-      @media (prefers-color-scheme: dark) { :root { --maya-bg: rgba(111, 196, 138, .15); } }
+      :root { --maya-bg: rgba(11, 42, 91, .14); }
+      @media (prefers-color-scheme: dark) { :root { --maya-bg: rgba(169, 214, 245, .22); } }
       .pill {
         display: inline-flex; align-items: center; gap: 7px; flex: none;
         font-size: .8rem; font-weight: 700; border-radius: 999px; padding: 4px 12px; white-space: nowrap;
@@ -331,6 +331,84 @@
         .ttable tbody tr + tr { border-top: 1px solid var(--line); }
         .ttable td { padding: 2px 0; border: none !important; }
         .ttable td.date { font-size: .85rem; color: var(--ink-soft); font-weight: 600; }
+      }
+    
+      /* ---------- Blue mockup scheme overrides ---------- */
+      body { background: var(--bg); }
+      a { color: #123b7a; }
+      .hero { background: #0b2a5b; border-bottom: 6px solid #3e8ede; }
+      .rank-box { background: #123b7a; border-color: rgba(169, 214, 245, .45); }
+      .sec-head h2, .t-sec-title, .t-head h2 { color: #0b2a5b; }
+      .card { background: #dcefff; border-color: #8fbee8; }
+      .card .card, .other-sec { background: #dcefff; }
+      /* Rating cards: Regular navy / Quick light blue */
+      .ratings .rcard:first-child { background: #0b2a5b; border-color: #0b2a5b; color: #ffffff; }
+      .ratings .rcard:first-child::before { background: #3e8ede; }
+      .ratings .rcard:first-child .sys { color: #a9d6f5; }
+      .ratings .rcard:first-child .meta { color: #dcefff; }
+      .ratings .rcard:first-child .big .prov { color: #a9d6f5; }
+      .ratings .rcard:last-child { background: #a9d6f5; border-color: #7ab8f0; color: #0b2a5b; }
+      .ratings .rcard:last-child::before { background: #0b2a5b; }
+      .ratings .rcard:last-child .sys { color: #123b7a; }
+      .ratings .rcard:last-child .meta { color: #123b7a; }
+      .badge-prov { background: #a9d6f5; color: #0b2a5b; }
+      /* Table headers: navy band, white text */
+      thead th { background: #0b2a5b; color: #ffffff; border-bottom: none; padding: 9px 8px; }
+      thead th:first-child { border-radius: 8px 0 0 8px; }
+      thead th:last-child { border-radius: 0 8px 8px 0; }
+      tbody tr:nth-child(even) td { background: rgba(169, 214, 245, .5); }
+      .focus-table tbody tr:nth-child(even) td { background: rgba(169, 214, 245, .5); }
+      .focus-table tr.is-maya td { background: rgba(11, 42, 91, .14); }
+      .sys-tag { background: #a9d6f5; color: #0b2a5b; }
+      /* Chart series */
+      .chart-svg .line-reg { stroke: #0b2a5b; }
+      .chart-svg .line-qck { stroke: #3e8ede; }
+      .chart-svg .grid { stroke: #8fbee8; }
+      .toggle { background: #ffffff; border-color: #8fbee8; color: #35507a; }
+      .toggle[aria-pressed="true"] { background: #0b2a5b; border-color: #0b2a5b; color: #ffffff; }
+      .toggle:focus-visible, .tcard:focus-visible, .h2h-badge:focus-visible, .other-sec summary:focus-visible { outline-color: #3e8ede; }
+      /* Top 100 track */
+      .track::before { background: #a9d6f5; }
+      .tp .pt { border-color: #3e8ede; background: #ffffff; }
+      .tp.current .pt { background: #0b2a5b; border-color: #0b2a5b; }
+      /* Tournament cards & pills */
+      .tcard { background: #dcefff; border-color: #8fbee8; }
+      .tcard:hover { border-color: #3e8ede; }
+      .tcard-date, .t-date { color: #123b7a; }
+      .tcard-cta { color: #0b2a5b; }
+      .pill-live { background: #0b2a5b; color: #ffffff; }
+      .pill-open { background: #a9d6f5; color: #0b2a5b; border-color: #7ab8f0; }
+      .maya-tag { background: #0b2a5b; color: #ffffff; }
+      .h2h-badge { background: #a9d6f5; color: #0b2a5b; border-color: #7ab8f0; }
+      .t-link-btn { border-color: #0b2a5b; color: #0b2a5b; background: #ffffff; }
+      .focus-table tr.ghost-row td { border-color: #3e8ede; }
+      .bar { background: #a9d6f5; }
+      /* Footer band */
+      footer { background: #0b2a5b; color: #ffffff; border-top: none; border-radius: 14px; padding: 22px 24px; }
+      footer .src { color: #dcefff; }
+      footer .src .live-dot, footer .src.live .live-dot { color: #7ed492; }
+      .foot-links a { color: #ffffff; }
+      @media (prefers-color-scheme: dark) {
+        a { color: #a9d6f5; }
+        .sec-head h2, .t-sec-title, .t-head h2 { color: #eaf4ff; }
+        .card, .tcard, .other-sec { background: #123b7a; border-color: #2a5f9e; }
+        thead th { background: #061a3a; color: #ffffff; }
+        tbody tr:nth-child(even) td { background: rgba(169, 214, 245, .12); }
+        .focus-table tr.is-maya td { background: rgba(169, 214, 245, .22); }
+        .sys-tag { background: #1d4e96; color: #dcefff; }
+        .chart-svg .line-reg { stroke: #a9d6f5; }
+        .chart-svg .line-qck { stroke: #3e8ede; }
+        .chart-svg .grid { stroke: #2a5f9e; }
+        .toggle { background: #0b2a5b; color: #a9d6f5; border-color: #2a5f9e; }
+        .toggle[aria-pressed="true"] { background: #a9d6f5; border-color: #a9d6f5; color: #0b2a5b; }
+        .tcard-date, .t-date { color: #a9d6f5; }
+        .tcard-cta { color: #ffffff; }
+        .pill-open { background: #1d4e96; color: #dcefff; border-color: #2a5f9e; }
+        .h2h-badge { background: #1d4e96; color: #dcefff; border-color: #2a5f9e; }
+        .t-link-btn { border-color: #a9d6f5; color: #a9d6f5; background: transparent; }
+        .ratings .rcard:last-child { background: #a9d6f5; color: #0b2a5b; }
+        .tp .pt { background: #123b7a; }
+        .tp.current .pt { background: #a9d6f5; border-color: #a9d6f5; }
       }
     </style>
   </head>
