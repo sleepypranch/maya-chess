@@ -95,7 +95,7 @@
       .rank-box .lbl { font-size: .8rem; color: var(--felt-soft); margin-top: 2px; }
 
       /* ---------- Rating cards ---------- */
-      .ratings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+      .ratings { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 26px; }
       .rcard {
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
         box-shadow: var(--shadow); padding: 20px 22px; position: relative; overflow: hidden;
@@ -137,17 +137,15 @@
       .chart-svg .pt-lbl { fill: var(--ink); font-size: 13.5px; font-weight: 700; font-family: "Public Sans", sans-serif; }
       .chart-svg .line-reg { stroke: var(--felt); }
       .chart-svg .line-qck { stroke: var(--walnut); }
-      .chart-svg .line-blz { stroke: var(--gold); }
       @media (prefers-color-scheme: dark) {
         .chart-svg .line-reg { stroke: #6fc48a; }
         .chart-svg .line-qck { stroke: #d9a45f; }
-        .chart-svg .line-blz { stroke: #e8c476; }
       }
       .chart-foot { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 12px; font-size: .92rem; color: var(--ink-soft); }
       .chart-foot strong { color: var(--ink); }
 
       /* ---------- Stats ---------- */
-      .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .stat-card h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 12px; }
       table { border-collapse: collapse; width: 100%; font-size: .95rem; }
       th, td { text-align: left; padding: 7px 8px; }
@@ -372,13 +370,8 @@
           <div class="big" id="ratingQuick">641</div>
           <div class="meta">Floor 150</div>
         </div>
-        <div class="rcard">
-          <div class="sys">Blitz</div>
-          <div class="big"><span id="ratingBlitz">405</span><span class="prov">/12</span><span class="badge-prov">Provisional</span></div>
-          <div class="meta">Floor 134 · rating based on 12 games</div>
-        </div>
       </div>
-      <p class="online-note">Online ratings (Regular, Quick, Blitz): not yet rated.</p>
+      <p class="online-note">Online ratings (Regular, Quick): not yet rated.</p>
 
       <!-- Top 100 -->
       <section aria-labelledby="t100-h">
@@ -419,7 +412,6 @@
           <div class="chart-controls" role="group" aria-label="Choose rating system">
             <button type="button" class="toggle" data-sys="R" aria-pressed="true">Regular</button>
             <button type="button" class="toggle" data-sys="Q" aria-pressed="false">Quick</button>
-            <button type="button" class="toggle" data-sys="B" aria-pressed="false">Blitz</button>
           </div>
           <div id="chartHost"></div>
           <div class="chart-foot" id="chartFoot"></div>
@@ -430,17 +422,17 @@
       <section aria-labelledby="stats-h">
         <div class="sec-head">
           <h2 id="stats-h">Game Stats</h2>
-          <span class="note">53 rated games</span>
+          <span class="note">38 rated games</span>
         </div>
         <div class="card">
           <div class="overall-line">
-            <span class="big">30W – 5D – 18L</span>
-            <span class="wdl">Score rate <strong>61.3%</strong> across all rated play</span>
+            <span class="big">23W – 4D – 11L</span>
+            <span class="wdl">Score rate <strong>65.8%</strong> across all rated play</span>
           </div>
           <div class="bar" aria-hidden="true">
-            <div class="seg-w" style="width:56.6%"></div>
-            <div class="seg-d" style="width:9.4%"></div>
-            <div class="seg-l" style="width:34%"></div>
+            <div class="seg-w" style="width:60.5%"></div>
+            <div class="seg-d" style="width:10.5%"></div>
+            <div class="seg-l" style="width:29%"></div>
           </div>
         </div>
         <div class="stats-grid" style="margin-top:14px">
@@ -449,8 +441,8 @@
             <table>
               <thead><tr><th>Year</th><th class="num">Games</th><th>W–D–L</th><th class="num">Score</th></tr></thead>
               <tbody>
-                <tr><td>2026</td><td class="num">40</td><td class="wdl"><b class="w">24</b>–<b class="d">4</b>–<b class="l">12</b></td><td class="num">65.0%</td></tr>
-                <tr><td>2025</td><td class="num">13</td><td class="wdl"><b class="w">6</b>–<b class="d">1</b>–<b class="l">6</b></td><td class="num">50.0%</td></tr>
+                <tr><td>2026</td><td class="num">29</td><td class="wdl"><b class="w">19</b>–<b class="d">3</b>–<b class="l">7</b></td><td class="num">70.7%</td></tr>
+                <tr><td>2025</td><td class="num">9</td><td class="wdl"><b class="w">4</b>–<b class="d">1</b>–<b class="l">4</b></td><td class="num">50.0%</td></tr>
               </tbody>
             </table>
           </div>
@@ -459,18 +451,8 @@
             <table>
               <thead><tr><th>Color</th><th class="num">Games</th><th>W–D–L</th><th class="num">Score</th></tr></thead>
               <tbody>
-                <tr><td>White</td><td class="num">27</td><td class="wdl"><b class="w">15</b>–<b class="d">3</b>–<b class="l">9</b></td><td class="num">61.1%</td></tr>
-                <tr><td>Black</td><td class="num">26</td><td class="wdl"><b class="w">15</b>–<b class="d">2</b>–<b class="l">9</b></td><td class="num">61.5%</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card stat-card">
-            <h3>By format</h3>
-            <table>
-              <thead><tr><th>Format</th><th class="num">Games</th><th>W–D–L</th></tr></thead>
-              <tbody>
-                <tr><td>Dual-rated</td><td class="num">38</td><td class="wdl"><b class="w">23</b>–<b class="d">4</b>–<b class="l">11</b></td></tr>
-                <tr><td>Blitz</td><td class="num">15</td><td class="wdl"><b class="w">7</b>–<b class="d">1</b>–<b class="l">7</b></td></tr>
+                <tr><td>White</td><td class="num">18</td><td class="wdl"><b class="w">10</b>–<b class="d">2</b>–<b class="l">6</b></td><td class="num">61.1%</td></tr>
+                <tr><td>Black</td><td class="num">20</td><td class="wdl"><b class="w">13</b>–<b class="d">2</b>–<b class="l">5</b></td><td class="num">70.0%</td></tr>
               </tbody>
             </table>
           </div>
@@ -482,9 +464,9 @@
             <tbody>
               <tr><td>Morgan Patchen</td><td class="num">3</td><td class="wdl"><b class="w">3 wins</b></td></tr>
               <tr><td>Marina Patchen</td><td class="num">3</td><td class="wdl"><b class="w">2W</b> <b class="d">1D</b></td></tr>
-              <tr><td>Gretchen Zajic</td><td class="num">2</td><td class="wdl"><b class="w">2 wins</b></td></tr>
               <tr><td>Andie Libert</td><td class="num">3</td><td class="wdl"><b class="d">1D</b> <b class="l">2L</b></td></tr>
-              <tr><td>Mayrhel Magalang Nilla</td><td class="num">3</td><td class="wdl"><b class="d">1D</b> <b class="l">2L</b></td></tr>
+              <tr><td>Mayrhel Magalang Nilla</td><td class="num">2</td><td class="wdl"><b class="d">1D</b> <b class="l">1L</b></td></tr>
+              <tr><td>Gretchen Zajic</td><td class="num">2</td><td class="wdl"><b class="w">2 wins</b></td></tr>
             </tbody>
           </table>
           <p class="opp-note">Undefeated against Morgan Patchen, Marina Patchen, and Gretchen Zajic in eight games — still chasing a first win against Andie Libert and Mayrhel Magalang Nilla.</p>
@@ -495,7 +477,7 @@
       <section aria-labelledby="tour-h">
         <div class="sec-head">
           <h2 id="tour-h">Tournament History</h2>
-          <span class="note">14 sections · newest first</span>
+          <span class="note">10 sections · newest first</span>
         </div>
         <div class="card" style="padding:10px 22px">
           <table class="ttable">
@@ -503,7 +485,7 @@
             <tbody id="tourBody"></tbody>
           </table>
         </div>
-        <p class="foot-note">Ratings shown are the live post-event ratings from each section, which can differ slightly from the published monthly rating — for example, her Blitz stands at 399/15 after the Nov 4 event, while the published Blitz rating is 405/12. A “/N” after a rating means it is provisional, based on N games.</p>
+        <p class="foot-note">Ratings shown are the live post-event ratings from each section, which can differ slightly from the published monthly rating. A “/N” after a rating means it is provisional, based on N games.</p>
       </section>
 
       <footer>
@@ -523,19 +505,18 @@
     <script>
       // ---------- Baked-in data (verified 2026-11-14 against the US Chess MUIR Ratings API) ----------
       var SUPPLEMENTS = [
-        // monthOffset from Dec 2025, label, Regular, Quick, Blitz, Blitz provisional games
-        { m: 0,  lbl: "Dec 2025", R: 386, Q: 393, B: 460, Bp: 4 },
-        { m: 1,  lbl: "Jan 2026", R: 398, Q: 406, B: 460, Bp: 4 },
-        { m: 3,  lbl: "Mar 2026", R: 447, Q: 459, B: 460, Bp: 4 },
-        { m: 5,  lbl: "May 2026", R: 489, Q: 500, B: 520, Bp: 8 },
-        { m: 6,  lbl: "Jun 2026", R: 631, Q: 627, B: 405, Bp: 12 },
-        { m: 8,  lbl: "Aug 2026", R: 632, Q: 627, B: 405, Bp: 12 },
-        { m: 11, lbl: "Nov 2026", R: 645, Q: 641, B: 405, Bp: 12 }
+        // monthOffset from Dec 2025, label, Regular, Quick
+        { m: 0,  lbl: "Dec 2025", R: 386, Q: 393 },
+        { m: 1,  lbl: "Jan 2026", R: 398, Q: 406 },
+        { m: 3,  lbl: "Mar 2026", R: 447, Q: 459 },
+        { m: 5,  lbl: "May 2026", R: 489, Q: 500 },
+        { m: 6,  lbl: "Jun 2026", R: 631, Q: 627 },
+        { m: 8,  lbl: "Aug 2026", R: 632, Q: 627 },
+        { m: 11, lbl: "Nov 2026", R: 645, Q: 641 }
       ];
       var SYS_META = {
         R: { name: "Regular", cls: "line-reg" },
-        Q: { name: "Quick",   cls: "line-qck" },
-        B: { name: "Blitz",   cls: "line-blz" }
+        Q: { name: "Quick",   cls: "line-qck" }
       };
 
       function fmt(n) { return n.toLocaleString("en-US"); }
@@ -564,10 +545,9 @@
         s += '<path class="' + SYS_META[sys].cls + '" d="' + d + '" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
         pts.forEach(function (pt, i) {
           var p = pt[2];
-          var label = sys === "B" ? (p.B + "/" + p.Bp) : String(p[sys]);
+          var label = String(p[sys]);
           var anchor = i === 0 ? "start" : (i === pts.length - 1 ? "end" : "middle");
           var ly = pt[1] - 12;
-          if (sys === "B" && i === 4) ly = pt[1] + 24; // dip point: label below to avoid the May peak label area
           s += '<circle class="' + SYS_META[sys].cls + '" cx="' + pt[0] + '" cy="' + pt[1] + '" r="4.5" fill="var(--surface)" stroke-width="3"/>';
           s += '<text class="pt-lbl" x="' + pt[0] + '" y="' + ly + '" text-anchor="' + anchor + '">' + label + "</text>";
         });
@@ -579,7 +559,6 @@
         var foot = "<span><strong>" + SYS_META[sys].name + ":</strong> " + a + " (Dec 2025) → " + b + " (Nov 2026)</span>";
         foot += "<span>Change: <strong>" + (diff >= 0 ? "+" : "") + diff + "</strong> in 11 months</span>";
         if (sys === "R") foot += "<span>Biggest jump: <strong>+142</strong> in June 2026, after the 4th Spring Classic Scholastic Championship</span>";
-        if (sys === "B") foot += "<span>Blitz is provisional, based on " + last.Bp + " games</span>";
         document.getElementById("chartFoot").innerHTML = foot;
       }
 
@@ -595,20 +574,16 @@
 
       // ---------- Tournament history (baked in) ----------
       var SECTIONS = [
-        { d: "Nov 4, 2026",  ev: "COX NOV Blitz 2026", sec: "OPEN", rows: [["Blitz", "405", "399/15"]] },
         { d: "Nov 1, 2026",  ev: "Palm Beach County District Championship", sec: "EXTRA GAMES", rows: [["Regular", "677", "627"], ["Quick", "674", "624"]] },
         { d: "Nov 1, 2026",  ev: "Palm Beach County District Championship", sec: "GIRLS K-3", rows: [["Regular", "645", "677"], ["Quick", "641", "674"]] },
         { d: "Oct 17, 2026", ev: "88 Palms hosted by TGS - 1 | K-6", sec: "Girls-1D", rows: [["Regular", "632", "645"], ["Quick", "627", "641"]] },
-        { d: "Apr 29, 2026", ev: "COX BLITZ SPRING 2026", sec: "OPEN", rows: [["Blitz", "520", "405/12"]] },
         { d: "Apr 25, 2026", ev: "4th Spring Classic Scholastic Champ", sec: "K-3-1D", rows: [["Regular", "498", "632"], ["Quick", "509", "627"]] },
         { d: "Apr 18, 2026", ev: "2026 Florida State All Girls Chess Championship", sec: "K-1 and K-3 combined", rows: [["Regular", "489", "498"], ["Quick", "500", "509"]] },
         { d: "Apr 11, 2026", ev: "The Greene Chess Tour 6 | Scholastic & Open", sec: "K-5 Girls-Only", rows: [["Regular", "488", "489/25"], ["Quick", "497", "500/25"]] },
-        { d: "Apr 8, 2026",  ev: "COX APRIL BLITZ", sec: "OPEN", rows: [["Blitz", "460", "520/8"]] },
         { d: "Apr 7, 2026",  ev: "Scholastic Chess Tournament at South Olive Elementary", sec: "Girls K-3 and K-6", rows: [["Regular", "447", "488/21"], ["Quick", "459", "497/21"]] },
         { d: "Jan 24, 2026", ev: "2026 Florida South Regional Championship", sec: "GIRLS K-3 & K-6", rows: [["Regular", "398", "447/17"], ["Quick", "406", "459/17"]] },
         { d: "Dec 8, 2025",  ev: "The Greene Chess Tour 4 | Scholastic & Open", sec: "K-5 Girls-Only-1D", rows: [["Regular", "386", "398/13"], ["Quick", "393", "406/13"]] },
-        { d: "Nov 8, 2025",  ev: "West Palm Beach Championship", sec: "K-3", rows: [["Regular", "unrated", "386/9"], ["Quick", "unrated", "393/9"]] },
-        { d: "Nov 5, 2025",  ev: "COX FALL 2025 WARMUP", sec: "B GROUP", rows: [["Blitz", "unrated", "460/4"]] }
+        { d: "Nov 8, 2025",  ev: "West Palm Beach Championship", sec: "K-3", rows: [["Regular", "unrated", "386/9"], ["Quick", "unrated", "393/9"]] }
       ];
       function baseNum(v) { return v === "unrated" ? null : parseInt(v, 10); }
       var html = "";
@@ -645,7 +620,6 @@
             function num(el, v) { if (v != null) document.getElementById(el).textContent = fmt(v); }
             if (bySys.R && bySys.R.rating != null) num("ratingRegular", bySys.R.rating);
             if (bySys.Q && bySys.Q.rating != null) num("ratingQuick", bySys.Q.rating);
-            if (bySys.B && bySys.B.rating != null) num("ratingBlitz", bySys.B.rating);
             document.getElementById("srcLine").classList.add("live");
           })
           .catch(function () { /* offline or API blocked: baked-in snapshot remains */ });
@@ -654,10 +628,10 @@
     <script>
       // ---------- Tournament data (verified 2026-11-14: ChessRegister entrant lists + US Chess MUIR Ratings API) ----------
       // Key: n=name, id=US Chess ID, cr=rating as listed on ChessRegister, sc=school,
-      // st={R,Q,B published ratings, tr=Regular trend across last 4 published lists, secs=sections played, last=last event},
+      // st={R,Q published ratings, tr=Regular trend across last 4 published lists, secs=sections played, last=last event},
       // h2h={g,w,d,l from Maya's perspective, detail=[{dt,ev,c=Maya's color,r=Maya's result}]}
-      var TOURNAMENT_1 = {"key":"88palms-2026-11-14","name":"88 Palms hosted by TGS #2 | K-8","date":"Saturday, November 14, 2026","status":"Maya is entered — playing today","venue":"88 Palms Hotel, 1901 Palm Beach Lakes, West Palm Beach, FL","organizer":"Chess Scholar, LLC","format":"4 rounds · G/25;d5 · Round 1 9:30 AM","totalEntrants":42,"mayaSection":"K3","mayaSeedNote":"Maya is seeded 3rd of 7 in K3","registerUrl":"https://www.chessregister.com/register?event_key=BDQuVhBgzIJeEAPRzZdqoM1V04Ucuw73-2nkGVypuPY%3D","registrantsUrl":"https://www.chessregister.com/registrants?event_key=BDQuVhBgzIJeEAPRzZdqoM1V04Ucuw73-2nkGVypuPY%3D","focus":{"name":"K3","players":[{"n":"Mason Scheier","id":"31234508","cr":"817","sc":"American Heritage","st":{"R":"817","Q":"826","B":null,"tr":68,"secs":25,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Xavier Innocent","id":"33317176","cr":"727/05","sc":"Blue Lake Elementary","st":{"R":"727/05","Q":"730 (prov)","B":null,"tr":null,"secs":2,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Maya Davidyan","id":"32560807","cr":"645","sc":"Ignite homeschool","st":{"R":"645","Q":"641","B":"405 (prov)","tr":156,"secs":14,"last":{"ev":"Cox Nov Blitz 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"James McGee","id":"32119635","cr":"599","sc":"The Greene School","st":{"R":"599","Q":"608","B":null,"tr":-29,"secs":13,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Connor Calkin","id":"32654839","cr":"508","sc":"The Greene School","st":{"R":"508","Q":"509 (prov)","B":null,"tr":71,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}},{"n":"Solomiia Haichenia","id":"33241533","cr":"306/13","sc":"Blue Lake Elementary","h2h":{"g":2,"w":2,"d":0,"l":0,"detail":[{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"White","r":"Win"},{"dt":"2026-11-01","ev":"Palm Beach County District Championship","c":"White","r":"Win"}]},"st":{"R":"306/13","Q":"308 (prov)","B":null,"tr":null,"secs":4,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"GIRLS K-3"}}},{"n":"Ivo Lubin","id":"32339025","cr":"202/19","sc":"The Greene School","st":{"R":"202/19","Q":"193 (prov)","B":null,"tr":18,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}}]},"others":[{"name":"K8","players":[{"n":"Peyton Heizman","id":"33267479","cr":"1017/09","sc":"The Weiss School"},{"n":"John Monsour","id":"32750836","cr":"600","sc":"The Greene School"},{"n":"Gabroel Crawford","id":null,"cr":null,"sc":"The Greene School"},{"n":"Leonardo Marchetti Gonzales","id":"33351154","cr":null,"sc":"Divine Savior Academy"},{"n":"Michael Crawford","id":null,"cr":null,"sc":"The Greene School"},{"n":"Owen Hernandez","id":null,"cr":null,"sc":"Elbridge Gale Elementary"}]},{"name":"K5","players":[{"n":"Ashton Heizman","id":"33267514","cr":"891/10","sc":"The Weiss School"},{"n":"Shia Ricci","id":"32650899","cr":"842","sc":"The Greene School"},{"n":"Kira Krolivets","id":"33084990","cr":"805/09","sc":"Blue Lake Elementary"},{"n":"Brando Ricci","id":"32650915","cr":"626","sc":"The Greene School"},{"n":"Olive Soylemez","id":"32743916","cr":"333","sc":"The Greene School","byes":"1","h2h":{"g":2,"w":1,"d":1,"l":0,"detail":[{"dt":"2025-12-08","ev":"The Greene Chess Tour 4 | Scholastic & Open","c":"Black","r":"Draw"},{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"White","r":"Win"}]}},{"n":"Eric Guevara","id":null,"cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Warren Lilly","id":null,"cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Xander Ladd","id":null,"cr":null,"sc":"Elbridge Gale Elementary"}]},{"name":"K8 Girls","players":[{"n":"Myra Kumar","id":"30756714","cr":"703","sc":"The Greene School","h2h":{"g":1,"w":0,"d":0,"l":1,"detail":[{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"White","r":"Loss"}]}},{"n":"Rachel Frankel","id":"32841880","cr":"325/17","sc":"The Greene School","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-07","ev":"Scholastic Chess Tournament At South Olive Elementary","c":"White","r":"Win"}]}},{"n":"Morgan Patchen","id":"32841854","cr":"228/20","sc":"The Greene School","h2h":{"g":3,"w":3,"d":0,"l":0,"detail":[{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"White","r":"Win"},{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"Black","r":"Win"},{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"Black","r":"Win"}]}},{"n":"Elektra Miller","id":"32841896","cr":"171/08","sc":"Independence Middle School","byes":"1"},{"n":"Lola Olds","id":"32442792","cr":null,"sc":"?"}]},{"name":"K1","players":[{"n":"Raymond Soylemez","id":"32654820","cr":"552","sc":"The Greene School"},{"n":"Theo Klocke","id":"32654843","cr":"496","sc":"The Greene School"},{"n":"Lincoln Newton","id":"32616392","cr":"324","sc":"The Greene School","byes":"3,4"},{"n":"Ezra Bodwell-Gosier","id":"32616431","cr":"274","sc":"The Greene School"},{"n":"Frank Jackson","id":"32616405","cr":"143/21","sc":"The Greene School"},{"n":"Grant Rachlin","id":"32614840","cr":"127/22","sc":"The Greene School"},{"n":"Remy Dugan","id":"33325668","cr":null,"sc":"The Greene School","byes":"4"},{"n":"Noah Brodsky","id":"33329065","cr":null,"sc":"The Greene School"},{"n":"Jaylen Solis","id":"33373721","cr":null,"sc":"The Greene School","byes":"4"}]},{"name":"K3 Girls","players":[{"n":"Sarah Frankel","id":"32256819","cr":"309","sc":"The Greene School"},{"n":"Marina Patchen","id":"32840707","cr":"274/23","sc":"The Greene School","h2h":{"g":3,"w":2,"d":1,"l":0,"detail":[{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"Black","r":"Win"},{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"White","r":"Win"},{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"Black","r":"Draw"}]}},{"n":"June Judge","id":null,"cr":null,"sc":"The Greene School"},{"n":"Sofia Liatsis","id":"33364055","cr":null,"sc":"The Greene School"},{"n":"Rohini Skomra","id":null,"cr":null,"sc":"The Greene School"},{"n":"Sarahi Leon","id":"33384320","cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Waverly McGee","id":"33363987","cr":null,"sc":"The Greene School","byes":"4"}]}]};
-      var TOURNAMENT_2 = {"key":"wpb-2026-11-21","name":"2nd West Palm Beach Scholastic Championship","date":"Saturday, November 21, 2026","status":"Maya is not entered yet","venue":"Cox Science Center and Aquarium, 4801 Dreher Trail N, West Palm Beach, FL","organizer":"Palm Beach Chess","format":"5 rounds · G/25;5 · Rounds 10:00 AM, 11:15 AM, 12:45 PM, 2:00 PM, 3:00 PM","totalEntrants":61,"mayaSection":null,"mayaSeedNote":"Her 645 would seed her 5th of 18 in K-3 as the field stands","registerUrl":"https://www.chessregister.com/register?event_key=_c8ub5YVp-DZscQxovhLU81V04Ucuw73-2nkGVypuPY%3D","registrantsUrl":"https://www.chessregister.com/registrants?event_key=_c8ub5YVp-DZscQxovhLU81V04Ucuw73-2nkGVypuPY%3D","entryFee":"$35 — $50 after Nov 18","focus":{"name":"K-3","players":[{"n":"Oliver Betteridge","id":"32122479","cr":"684","sc":"THE GREENE SCHOOL","st":{"R":"684","Q":"675","B":null,"tr":103,"secs":17,"last":{"ev":"88 Palms Hosted By Tgs - 1 | K-6","dt":"2026-10-17","sec":"K3-1D"}}},{"n":"Takumi Inagaki","id":"33253776","cr":"678/05","sc":"Weiss School","st":{"R":"678/05","Q":"682 (prov)","B":null,"tr":null,"secs":2,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Neo Hui","id":"33115897","cr":"670/22","sc":"PINE CREST SCHOOL-BOCA RATON","st":{"R":"670/22","Q":"673 (prov)","B":null,"tr":-143,"secs":7,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Hanul Wik","id":"31824167","cr":"663","sc":"THE BENJAMIN SCHOOL","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-25","ev":"4Th Spring Classic Scholastic Champ","c":"Black","r":"Win"}]},"st":{"R":"663","Q":"671","B":"445","tr":176,"secs":16,"last":{"ev":"4Th Spring Classic Scholastic Champ","dt":"2026-04-25","sec":"K-3-1D"}}},{"n":"Shivik Jeedigunta","id":"31896343","cr":"638","sc":"Goldsboro Elementary Magnet School","st":{"R":"638","Q":"658","B":null,"tr":7,"secs":35,"last":{"ev":"Pca 10|2 Rapid Event 6","dt":"2026-11-07","sec":"OPEN"}}},{"n":"Carlo Fabian","id":"33119858","cr":"589/24","sc":"Coral sunset elementary school","st":{"R":"589/24","Q":"550 (prov)","B":null,"tr":62,"secs":7,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Connor Calkin","id":"32654839","cr":"508","sc":"THE GREENE SCHOOL","st":{"R":"508","Q":"509 (prov)","B":null,"tr":71,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}},{"n":"William Watts","id":"32949501","cr":"465/07","sc":"Homeschool","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-29","ev":"Cox Blitz Spring 2026","c":"Black","r":"Win"}]},"st":{"R":"465/07","Q":"465 (prov)","B":"139 (prov)","tr":null,"secs":4,"last":{"ev":"Cox Nov Blitz 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Elijah Furer","id":"33093105","cr":"416/12","sc":"Pine Crest School","st":{"R":"416/12","Q":"408 (prov)","B":null,"tr":315,"secs":3,"last":{"ev":"Boca Raton Scholastic Chess Tournament","dt":"2026-10-11","sec":"K-3"}}},{"n":"Andres Figueroa","id":"32338766","cr":"412/10","sc":"Manatee Elementary","st":{"R":"412/10","Q":"419 (prov)","B":"409 (prov)","tr":-120,"secs":3,"last":{"ev":"Cox April Blitz","dt":"2026-04-08","sec":"OPEN"}}},{"n":"Solomiia Haichenia","id":"33241533","cr":"306/13","sc":"Blue Lake Elementary","h2h":{"g":2,"w":2,"d":0,"l":0,"detail":[{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"White","r":"Win"},{"dt":"2026-11-01","ev":"Palm Beach County District Championship","c":"White","r":"Win"}]},"st":{"R":"306/13","Q":"308 (prov)","B":null,"tr":null,"secs":4,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"GIRLS K-3"}}},{"n":"Keshav Sagar","id":"32836669","cr":"107/14","sc":"Beacon Cove Intermediate School","st":{"R":"107/14","Q":"107 (prov)","B":null,"tr":4,"secs":4,"last":{"ev":"4Th Spring Classic Scholastic Champ","dt":"2026-04-25","sec":"Extra Games"}}},{"n":"Gabriel Stern","id":"33301097","cr":null,"sc":"Advent Boca Raton","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":1,"last":{"ev":"Cox Nov Blitz 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Jonathan Pacheco","id":"33301037","cr":null,"sc":"Acreage Pines Elementary School","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":1,"last":{"ev":"Cox Nov Blitz 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Francisco Hernandez","id":"33353397","cr":null,"sc":"DIVINE SAVIOR ACADEMY","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Wilson Zhang","id":"33324829","cr":null,"sc":"Marsh Pointe Elementary","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Zachary Velasquez Rojas","id":"33351513","cr":null,"sc":"DIVINE SAVIOR ACADEMY","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Elliott Simon","id":"33381791","cr":null,"sc":"The Benjamin school","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}}]},"others":[{"name":"K-8","players":[{"n":"Isaac Martinez","id":"13072295","cr":"2271","sc":"BAK middle school of the arts"},{"n":"Dhanush Shankar","id":"30471209","cr":"1310","sc":"A. D. Henderson University School"},{"n":"Andrew Ferrera","id":"32778580","cr":"971","sc":"St Joan of Arc"},{"n":"Alexander Mathew","id":"32509985","cr":"945","sc":"Mater Academy Northwood"},{"n":"Nolan Gauthier","id":"31561669","cr":"888","sc":"Crestwood Middle"},{"n":"Grant Sheldon","id":"33101748","cr":"706/05","sc":"Polo Park"},{"n":"Sohum Sagar","id":"32836644","cr":"582/20","sc":"Bak MSOA"},{"n":"Nicolas Monegro","id":"31824062","cr":"533/08","sc":"Saint Ann Catholic School"},{"n":"Jake Harrison","id":"32336588","cr":"322/05","sc":"Bak Middle School of the Arts"},{"n":"Arthur Blatt","id":"30820532","cr":"213/07","sc":"Homeschool","h2h":{"g":1,"w":0,"d":0,"l":1,"detail":[{"dt":"2026-04-29","ev":"Cox Blitz Spring 2026","c":"White","r":"Loss"}]}},{"n":"Blake Paez","id":"32278337","cr":"202/10","sc":"Academy for Innovative Education (AIE)"},{"n":"Jackson Miller","id":"33385082","cr":null,"sc":"St. Marks Episcopal School"},{"n":"Jake Berkowitz","id":"33090803","cr":null,"sc":"Eagles Landing"},{"n":"Joe Yang","id":"33284184","cr":null,"sc":"Sebastian River Middle School"},{"n":"Alexander Tahir-Kheli","id":null,"cr":null,"sc":"Omni Middle School"},{"n":"Noah Blake","id":"33371313","cr":null,"sc":"WESTERN ACADEMY CHARTER SCHOOL"},{"n":"Aashka Jhamb","id":"33360691","cr":null,"sc":"POLO PARK MIDDLE SCHOOL"},{"n":"Isaac Walthall","id":"32949487","cr":null,"sc":"Kings Academy"},{"n":"Enrico Giangiulio","id":null,"cr":null,"sc":"Bak Middle School of the Arts"},{"n":"Isaac Pinto","id":"33384498","cr":null,"sc":"St Lucie West K-8","byes":"1"},{"n":"Cameron Jacobs","id":"33382102","cr":null,"sc":"Leader Learning Center"},{"n":"Daniel Stern","id":"33301083","cr":null,"sc":"Homeschool","h2h":{"g":1,"w":0,"d":0,"l":1,"detail":[{"dt":"2026-11-04","ev":"Cox Nov Blitz 2026","c":"Black","r":"Loss"}]}},{"n":"Evgenii Selin","id":null,"cr":null,"sc":"American heritage"}]},{"name":"K-5","players":[{"n":"Andrew Meshkov","id":"31505427","cr":"853","sc":"Western Academy Charter School"},{"n":"Esmeralda Fadraga","id":"32829288","cr":"656/20","sc":"Academy for Innovative Education (AIE)"},{"n":"Carlos Ramirez","id":"32829319","cr":"346/05","sc":"Academy for Innovative Education (AIE)"},{"n":"Edward Watts","id":"32949518","cr":"253/07","sc":"Homeschool","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-08","ev":"Cox April Blitz","c":"White","r":"Win"}]}},{"n":"Charles Watts","id":"32949528","cr":"107/06","sc":"Homeschool","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-11-04","ev":"Cox Nov Blitz 2026","c":"White","r":"Win"}]}},{"n":"Liam Toribio","id":"33387444","cr":null,"sc":"Academy for Innovative Education (AIE)"},{"n":"Braiden McMinn","id":"33355649","cr":null,"sc":"Crystal Lake Elementary"},{"n":"Niko Suarez","id":"33377193","cr":null,"sc":"Homeschool"},{"n":"Elise Mathew","id":"33336258","cr":null,"sc":"Mater Academy Northwood"},{"n":"Tomas Echeverria","id":"33366513","cr":null,"sc":"BINKS Forest Elementary School","byes":"5"},{"n":"Caleb Stern","id":"33371950","cr":null,"sc":"Panther Run Elementary"},{"n":"Benjamin Corton","id":"33387436","cr":null,"sc":"Academy for Innovative Education (AIE)"}]},{"name":"K-12","players":[{"n":"Brycen Garofalo","id":"32278353","cr":"822/14","sc":"Academy for Innovative Education (AIE)"},{"n":"Jayani G Rajan","id":"32796918","cr":"776/23","sc":"Don Estridge High Tech Middle School"},{"n":"Matias Sampaio","id":"30881764","cr":"760","sc":"The Weiss School"}]},{"name":"K-1","players":[{"n":"Lionel Ramsey","id":"33288224","cr":"506/05","sc":"Pine School"},{"n":"Theo Klocke","id":"32654843","cr":"496","sc":"The Greene School"},{"n":"Demi Goodner","id":"32948695","cr":"105/04","sc":"DIVINE SAVIOR ACADEMY"},{"n":"Adrian Ferrera","id":"33315079","cr":null,"sc":"St. Joan of Arc","byes":"4,5"},{"n":"Elias Mathew","id":"33366977","cr":null,"sc":"Mater Academy Northwood"}]}]};
+      var TOURNAMENT_1 = {"key":"88palms-2026-11-14","name":"88 Palms hosted by TGS #2 | K-8","date":"Saturday, November 14, 2026","status":"Maya is entered — playing today","venue":"88 Palms Hotel, 1901 Palm Beach Lakes, West Palm Beach, FL","organizer":"Chess Scholar, LLC","format":"4 rounds · G/25;d5 · Round 1 9:30 AM","totalEntrants":42,"mayaSection":"K3","mayaSeedNote":"Maya is seeded 3rd of 7 in K3","registerUrl":"https://www.chessregister.com/register?event_key=BDQuVhBgzIJeEAPRzZdqoM1V04Ucuw73-2nkGVypuPY%3D","registrantsUrl":"https://www.chessregister.com/registrants?event_key=BDQuVhBgzIJeEAPRzZdqoM1V04Ucuw73-2nkGVypuPY%3D","focus":{"name":"K3","players":[{"n":"Mason Scheier","id":"31234508","cr":"817","sc":"American Heritage","st":{"R":"817","Q":"826","B":null,"tr":68,"secs":25,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Xavier Innocent","id":"33317176","cr":"727/05","sc":"Blue Lake Elementary","st":{"R":"727/05","Q":"730 (prov)","B":null,"tr":null,"secs":2,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Maya Davidyan","id":"32560807","cr":"645","sc":"Ignite homeschool","st":{"R":"645","Q":"641","B":null,"tr":156,"secs":14,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"GIRLS K-3"}}},{"n":"James McGee","id":"32119635","cr":"599","sc":"The Greene School","st":{"R":"599","Q":"608","B":null,"tr":-29,"secs":13,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Connor Calkin","id":"32654839","cr":"508","sc":"The Greene School","st":{"R":"508","Q":"509 (prov)","B":null,"tr":71,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}},{"n":"Solomiia Haichenia","id":"33241533","cr":"306/13","sc":"Blue Lake Elementary","h2h":{"g":2,"w":2,"d":0,"l":0,"detail":[{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"White","r":"Win"},{"dt":"2026-11-01","ev":"Palm Beach County District Championship","c":"White","r":"Win"}]},"st":{"R":"306/13","Q":"308 (prov)","B":null,"tr":null,"secs":4,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"GIRLS K-3"}}},{"n":"Ivo Lubin","id":"32339025","cr":"202/19","sc":"The Greene School","st":{"R":"202/19","Q":"193 (prov)","B":null,"tr":18,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}}]},"others":[{"name":"K8","players":[{"n":"Peyton Heizman","id":"33267479","cr":"1017/09","sc":"The Weiss School"},{"n":"John Monsour","id":"32750836","cr":"600","sc":"The Greene School"},{"n":"Gabroel Crawford","id":null,"cr":null,"sc":"The Greene School"},{"n":"Leonardo Marchetti Gonzales","id":"33351154","cr":null,"sc":"Divine Savior Academy"},{"n":"Michael Crawford","id":null,"cr":null,"sc":"The Greene School"},{"n":"Owen Hernandez","id":null,"cr":null,"sc":"Elbridge Gale Elementary"}]},{"name":"K5","players":[{"n":"Ashton Heizman","id":"33267514","cr":"891/10","sc":"The Weiss School"},{"n":"Shia Ricci","id":"32650899","cr":"842","sc":"The Greene School"},{"n":"Kira Krolivets","id":"33084990","cr":"805/09","sc":"Blue Lake Elementary"},{"n":"Brando Ricci","id":"32650915","cr":"626","sc":"The Greene School"},{"n":"Olive Soylemez","id":"32743916","cr":"333","sc":"The Greene School","byes":"1","h2h":{"g":2,"w":1,"d":1,"l":0,"detail":[{"dt":"2025-12-08","ev":"The Greene Chess Tour 4 | Scholastic & Open","c":"Black","r":"Draw"},{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"White","r":"Win"}]}},{"n":"Eric Guevara","id":null,"cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Warren Lilly","id":null,"cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Xander Ladd","id":null,"cr":null,"sc":"Elbridge Gale Elementary"}]},{"name":"K8 Girls","players":[{"n":"Myra Kumar","id":"30756714","cr":"703","sc":"The Greene School","h2h":{"g":1,"w":0,"d":0,"l":1,"detail":[{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"White","r":"Loss"}]}},{"n":"Rachel Frankel","id":"32841880","cr":"325/17","sc":"The Greene School","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-07","ev":"Scholastic Chess Tournament At South Olive Elementary","c":"White","r":"Win"}]}},{"n":"Morgan Patchen","id":"32841854","cr":"228/20","sc":"The Greene School","h2h":{"g":3,"w":3,"d":0,"l":0,"detail":[{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"White","r":"Win"},{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"Black","r":"Win"},{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"Black","r":"Win"}]}},{"n":"Elektra Miller","id":"32841896","cr":"171/08","sc":"Independence Middle School","byes":"1"},{"n":"Lola Olds","id":"32442792","cr":null,"sc":"?"}]},{"name":"K1","players":[{"n":"Raymond Soylemez","id":"32654820","cr":"552","sc":"The Greene School"},{"n":"Theo Klocke","id":"32654843","cr":"496","sc":"The Greene School"},{"n":"Lincoln Newton","id":"32616392","cr":"324","sc":"The Greene School","byes":"3,4"},{"n":"Ezra Bodwell-Gosier","id":"32616431","cr":"274","sc":"The Greene School"},{"n":"Frank Jackson","id":"32616405","cr":"143/21","sc":"The Greene School"},{"n":"Grant Rachlin","id":"32614840","cr":"127/22","sc":"The Greene School"},{"n":"Remy Dugan","id":"33325668","cr":null,"sc":"The Greene School","byes":"4"},{"n":"Noah Brodsky","id":"33329065","cr":null,"sc":"The Greene School"},{"n":"Jaylen Solis","id":"33373721","cr":null,"sc":"The Greene School","byes":"4"}]},{"name":"K3 Girls","players":[{"n":"Sarah Frankel","id":"32256819","cr":"309","sc":"The Greene School"},{"n":"Marina Patchen","id":"32840707","cr":"274/23","sc":"The Greene School","h2h":{"g":3,"w":2,"d":1,"l":0,"detail":[{"dt":"2026-01-24","ev":"2026 Florida South Regional Championship","c":"Black","r":"Win"},{"dt":"2026-04-11","ev":"The Greene Chess Tour 6 | Scholastic & Open","c":"White","r":"Win"},{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"Black","r":"Draw"}]}},{"n":"June Judge","id":null,"cr":null,"sc":"The Greene School"},{"n":"Sofia Liatsis","id":"33364055","cr":null,"sc":"The Greene School"},{"n":"Rohini Skomra","id":null,"cr":null,"sc":"The Greene School"},{"n":"Sarahi Leon","id":"33384320","cr":null,"sc":"Elbridge Gale Elementary"},{"n":"Waverly McGee","id":"33363987","cr":null,"sc":"The Greene School","byes":"4"}]}]};
+      var TOURNAMENT_2 = {"key":"wpb-2026-11-21","name":"2nd West Palm Beach Scholastic Championship","date":"Saturday, November 21, 2026","status":"Maya is not entered yet","venue":"Cox Science Center and Aquarium, 4801 Dreher Trail N, West Palm Beach, FL","organizer":"Palm Beach Chess","format":"5 rounds · G/25;5 · Rounds 10:00 AM, 11:15 AM, 12:45 PM, 2:00 PM, 3:00 PM","totalEntrants":61,"mayaSection":null,"mayaSeedNote":"Her 645 would seed her 5th of 18 in K-3 as the field stands","registerUrl":"https://www.chessregister.com/register?event_key=_c8ub5YVp-DZscQxovhLU81V04Ucuw73-2nkGVypuPY%3D","registrantsUrl":"https://www.chessregister.com/registrants?event_key=_c8ub5YVp-DZscQxovhLU81V04Ucuw73-2nkGVypuPY%3D","entryFee":"$35 — $50 after Nov 18","focus":{"name":"K-3","players":[{"n":"Oliver Betteridge","id":"32122479","cr":"684","sc":"THE GREENE SCHOOL","st":{"R":"684","Q":"675","B":null,"tr":103,"secs":17,"last":{"ev":"88 Palms Hosted By Tgs - 1 | K-6","dt":"2026-10-17","sec":"K3-1D"}}},{"n":"Takumi Inagaki","id":"33253776","cr":"678/05","sc":"Weiss School","st":{"R":"678/05","Q":"682 (prov)","B":null,"tr":null,"secs":2,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Neo Hui","id":"33115897","cr":"670/22","sc":"PINE CREST SCHOOL-BOCA RATON","st":{"R":"670/22","Q":"673 (prov)","B":null,"tr":-143,"secs":7,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Hanul Wik","id":"31824167","cr":"663","sc":"THE BENJAMIN SCHOOL","h2h":{"g":1,"w":1,"d":0,"l":0,"detail":[{"dt":"2026-04-25","ev":"4Th Spring Classic Scholastic Champ","c":"Black","r":"Win"}]},"st":{"R":"663","Q":"671","B":null,"tr":176,"secs":16,"last":{"ev":"4Th Spring Classic Scholastic Champ","dt":"2026-04-25","sec":"K-3-1D"}}},{"n":"Shivik Jeedigunta","id":"31896343","cr":"638","sc":"Goldsboro Elementary Magnet School","st":{"R":"638","Q":"658","B":null,"tr":7,"secs":35,"last":{"ev":"Pca 10|2 Rapid Event 6","dt":"2026-11-07","sec":"OPEN"}}},{"n":"Carlo Fabian","id":"33119858","cr":"589/24","sc":"Coral sunset elementary school","st":{"R":"589/24","Q":"550 (prov)","B":null,"tr":62,"secs":7,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"K-3"}}},{"n":"Connor Calkin","id":"32654839","cr":"508","sc":"THE GREENE SCHOOL","st":{"R":"508","Q":"509 (prov)","B":null,"tr":71,"secs":9,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"EXTRA GAMES"}}},{"n":"William Watts","id":"32949501","cr":"465/07","sc":"Homeschool","st":{"R":"465/07","Q":"465 (prov)","B":null,"tr":null,"secs":4,"last":{"ev":"Cox Nov 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Elijah Furer","id":"33093105","cr":"416/12","sc":"Pine Crest School","st":{"R":"416/12","Q":"408 (prov)","B":null,"tr":315,"secs":3,"last":{"ev":"Boca Raton Scholastic Chess Tournament","dt":"2026-10-11","sec":"K-3"}}},{"n":"Andres Figueroa","id":"32338766","cr":"412/10","sc":"Manatee Elementary","st":{"R":"412/10","Q":"419 (prov)","B":null,"tr":-120,"secs":3,"last":{"ev":"Cox April","dt":"2026-04-08","sec":"OPEN"}}},{"n":"Solomiia Haichenia","id":"33241533","cr":"306/13","sc":"Blue Lake Elementary","h2h":{"g":2,"w":2,"d":0,"l":0,"detail":[{"dt":"2026-10-17","ev":"88 Palms Hosted By Tgs - 1 | K-6","c":"White","r":"Win"},{"dt":"2026-11-01","ev":"Palm Beach County District Championship","c":"White","r":"Win"}]},"st":{"R":"306/13","Q":"308 (prov)","B":null,"tr":null,"secs":4,"last":{"ev":"Palm Beach County District Championship","dt":"2026-11-01","sec":"GIRLS K-3"}}},{"n":"Keshav Sagar","id":"32836669","cr":"107/14","sc":"Beacon Cove Intermediate School","st":{"R":"107/14","Q":"107 (prov)","B":null,"tr":4,"secs":4,"last":{"ev":"4Th Spring Classic Scholastic Champ","dt":"2026-04-25","sec":"Extra Games"}}},{"n":"Gabriel Stern","id":"33301097","cr":null,"sc":"Advent Boca Raton","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":1,"last":{"ev":"Cox Nov 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Jonathan Pacheco","id":"33301037","cr":null,"sc":"Acreage Pines Elementary School","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":1,"last":{"ev":"Cox Nov 2026","dt":"2026-11-04","sec":"OPEN"}}},{"n":"Francisco Hernandez","id":"33353397","cr":null,"sc":"DIVINE SAVIOR ACADEMY","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Wilson Zhang","id":"33324829","cr":null,"sc":"Marsh Pointe Elementary","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Zachary Velasquez Rojas","id":"33351513","cr":null,"sc":"DIVINE SAVIOR ACADEMY","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}},{"n":"Elliott Simon","id":"33381791","cr":null,"sc":"The Benjamin school","st":{"R":null,"Q":null,"B":null,"tr":null,"secs":0,"last":null}}]},"others":[{"name":"K-8","players":[{"n":"Isaac Martinez","id":"13072295","cr":"2271","sc":"BAK middle school of the arts"},{"n":"Dhanush Shankar","id":"30471209","cr":"1310","sc":"A. D. Henderson University School"},{"n":"Andrew Ferrera","id":"32778580","cr":"971","sc":"St Joan of Arc"},{"n":"Alexander Mathew","id":"32509985","cr":"945","sc":"Mater Academy Northwood"},{"n":"Nolan Gauthier","id":"31561669","cr":"888","sc":"Crestwood Middle"},{"n":"Grant Sheldon","id":"33101748","cr":"706/05","sc":"Polo Park"},{"n":"Sohum Sagar","id":"32836644","cr":"582/20","sc":"Bak MSOA"},{"n":"Nicolas Monegro","id":"31824062","cr":"533/08","sc":"Saint Ann Catholic School"},{"n":"Jake Harrison","id":"32336588","cr":"322/05","sc":"Bak Middle School of the Arts"},{"n":"Arthur Blatt","id":"30820532","cr":"213/07","sc":"Homeschool"},{"n":"Blake Paez","id":"32278337","cr":"202/10","sc":"Academy for Innovative Education (AIE)"},{"n":"Jackson Miller","id":"33385082","cr":null,"sc":"St. Marks Episcopal School"},{"n":"Jake Berkowitz","id":"33090803","cr":null,"sc":"Eagles Landing"},{"n":"Joe Yang","id":"33284184","cr":null,"sc":"Sebastian River Middle School"},{"n":"Alexander Tahir-Kheli","id":null,"cr":null,"sc":"Omni Middle School"},{"n":"Noah Blake","id":"33371313","cr":null,"sc":"WESTERN ACADEMY CHARTER SCHOOL"},{"n":"Aashka Jhamb","id":"33360691","cr":null,"sc":"POLO PARK MIDDLE SCHOOL"},{"n":"Isaac Walthall","id":"32949487","cr":null,"sc":"Kings Academy"},{"n":"Enrico Giangiulio","id":null,"cr":null,"sc":"Bak Middle School of the Arts"},{"n":"Isaac Pinto","id":"33384498","cr":null,"sc":"St Lucie West K-8","byes":"1"},{"n":"Cameron Jacobs","id":"33382102","cr":null,"sc":"Leader Learning Center"},{"n":"Daniel Stern","id":"33301083","cr":null,"sc":"Homeschool"},{"n":"Evgenii Selin","id":null,"cr":null,"sc":"American heritage"}]},{"name":"K-5","players":[{"n":"Andrew Meshkov","id":"31505427","cr":"853","sc":"Western Academy Charter School"},{"n":"Esmeralda Fadraga","id":"32829288","cr":"656/20","sc":"Academy for Innovative Education (AIE)"},{"n":"Carlos Ramirez","id":"32829319","cr":"346/05","sc":"Academy for Innovative Education (AIE)"},{"n":"Edward Watts","id":"32949518","cr":"253/07","sc":"Homeschool"},{"n":"Charles Watts","id":"32949528","cr":"107/06","sc":"Homeschool"},{"n":"Liam Toribio","id":"33387444","cr":null,"sc":"Academy for Innovative Education (AIE)"},{"n":"Braiden McMinn","id":"33355649","cr":null,"sc":"Crystal Lake Elementary"},{"n":"Niko Suarez","id":"33377193","cr":null,"sc":"Homeschool"},{"n":"Elise Mathew","id":"33336258","cr":null,"sc":"Mater Academy Northwood"},{"n":"Tomas Echeverria","id":"33366513","cr":null,"sc":"BINKS Forest Elementary School","byes":"5"},{"n":"Caleb Stern","id":"33371950","cr":null,"sc":"Panther Run Elementary"},{"n":"Benjamin Corton","id":"33387436","cr":null,"sc":"Academy for Innovative Education (AIE)"}]},{"name":"K-12","players":[{"n":"Brycen Garofalo","id":"32278353","cr":"822/14","sc":"Academy for Innovative Education (AIE)"},{"n":"Jayani G Rajan","id":"32796918","cr":"776/23","sc":"Don Estridge High Tech Middle School"},{"n":"Matias Sampaio","id":"30881764","cr":"760","sc":"The Weiss School"}]},{"name":"K-1","players":[{"n":"Lionel Ramsey","id":"33288224","cr":"506/05","sc":"Pine School"},{"n":"Theo Klocke","id":"32654843","cr":"496","sc":"The Greene School"},{"n":"Demi Goodner","id":"32948695","cr":"105/04","sc":"DIVINE SAVIOR ACADEMY"},{"n":"Adrian Ferrera","id":"33315079","cr":null,"sc":"St. Joan of Arc","byes":"4,5"},{"n":"Elias Mathew","id":"33366977","cr":null,"sc":"Mater Academy Northwood"}]}]};
       var TOURNAMENTS = [TOURNAMENT_1, TOURNAMENT_2];
       var MAYA_ID = "32560807";
       var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
