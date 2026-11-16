@@ -234,6 +234,11 @@
 
       /* ---------- Tournament history table ---------- */
       .ttable td .ev { font-weight: 700; }
+      .ttable td a.ev-link { color: var(--navy); text-decoration: none; font-weight: 700; }
+      .ttable td a.ev-link::after { content: " ↗"; font-size: .78em; font-weight: 800; color: var(--blue); opacity: 0; transition: opacity .15s ease; }
+      .ttable td a.ev-link:hover { text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+      .ttable td a.ev-link:hover::after { opacity: 1; }
+      .ttable td a.ev-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
       .ttable td .sec-name { color: var(--ink-soft); font-size: .88rem; }
       .chg { font-variant-numeric: tabular-nums; white-space: nowrap; }
       .chg .up { color: var(--win); font-weight: 800; }
@@ -727,17 +732,17 @@
 
       // ---------- Tournament history (baked in) ----------
       var SECTIONS = [
-        { d: "Nov 14, 2026", ev: "88 Palms hosted by TGS - 2 | K-8", sec: "K3-1D", rows: [["Regular", "627", "594"], ["Quick", "624", "591"]] },
-        { d: "Nov 1, 2026",  ev: "Palm Beach County District Championship", sec: "EXTRA GAMES", rows: [["Regular", "677", "627"], ["Quick", "674", "624"]] },
-        { d: "Nov 1, 2026",  ev: "Palm Beach County District Championship", sec: "GIRLS K-3", rows: [["Regular", "645", "677"], ["Quick", "641", "674"]] },
-        { d: "Oct 17, 2026", ev: "88 Palms hosted by TGS - 1 | K-6", sec: "Girls-1D", rows: [["Regular", "632", "645"], ["Quick", "627", "641"]] },
-        { d: "Apr 25, 2026", ev: "4th Spring Classic Scholastic Champ", sec: "K-3-1D", rows: [["Regular", "498", "632"], ["Quick", "509", "627"]] },
-        { d: "Apr 18, 2026", ev: "2026 Florida State All Girls Chess Championship", sec: "K-1 and K-3 combined", rows: [["Regular", "489", "498"], ["Quick", "500", "509"]] },
-        { d: "Apr 11, 2026", ev: "The Greene Chess Tour 6 | Scholastic & Open", sec: "K-5 Girls-Only", rows: [["Regular", "488", "489/25"], ["Quick", "497", "500/25"]] },
-        { d: "Apr 7, 2026",  ev: "Scholastic Chess Tournament at South Olive Elementary", sec: "Girls K-3 and K-6", rows: [["Regular", "447", "488/21"], ["Quick", "459", "497/21"]] },
-        { d: "Jan 24, 2026", ev: "2026 Florida South Regional Championship", sec: "GIRLS K-3 & K-6", rows: [["Regular", "398", "447/17"], ["Quick", "406", "459/17"]] },
-        { d: "Dec 8, 2025",  ev: "The Greene Chess Tour 4 | Scholastic & Open", sec: "K-5 Girls-Only-1D", rows: [["Regular", "386", "398/13"], ["Quick", "393", "406/13"]] },
-        { d: "Nov 8, 2025",  ev: "West Palm Beach Championship", sec: "K-3", rows: [["Regular", "unrated", "386/9"], ["Quick", "unrated", "393/9"]] }
+        { d: "Nov 14, 2026", id: "202611140523", ev: "88 Palms hosted by TGS - 2 | K-8", sec: "K3-1D", rows: [["Regular", "627", "594"], ["Quick", "624", "591"]] },
+        { d: "Nov 1, 2026",  id: "202611010003", ev: "Palm Beach County District Championship", sec: "EXTRA GAMES", rows: [["Regular", "677", "627"], ["Quick", "674", "624"]] },
+        { d: "Nov 1, 2026",  id: "202611010003", ev: "Palm Beach County District Championship", sec: "GIRLS K-3", rows: [["Regular", "645", "677"], ["Quick", "641", "674"]] },
+        { d: "Oct 17, 2026", id: "202610170363", ev: "88 Palms hosted by TGS - 1 | K-6", sec: "Girls-1D", rows: [["Regular", "632", "645"], ["Quick", "627", "641"]] },
+        { d: "Apr 25, 2026", id: "202604250223", ev: "4th Spring Classic Scholastic Champ", sec: "K-3-1D", rows: [["Regular", "498", "632"], ["Quick", "509", "627"]] },
+        { d: "Apr 18, 2026", id: "202604180693", ev: "2026 Florida State All Girls Chess Championship", sec: "K-1 and K-3 combined", rows: [["Regular", "489", "498"], ["Quick", "500", "509"]] },
+        { d: "Apr 11, 2026", id: "202604111223", ev: "The Greene Chess Tour 6 | Scholastic & Open", sec: "K-5 Girls-Only", rows: [["Regular", "488", "489/25"], ["Quick", "497", "500/25"]] },
+        { d: "Apr 7, 2026",  id: "202604070213", ev: "Scholastic Chess Tournament at South Olive Elementary", sec: "Girls K-3 and K-6", rows: [["Regular", "447", "488/21"], ["Quick", "459", "497/21"]] },
+        { d: "Jan 24, 2026", id: "202601241193", ev: "2026 Florida South Regional Championship", sec: "GIRLS K-3 & K-6", rows: [["Regular", "398", "447/17"], ["Quick", "406", "459/17"]] },
+        { d: "Dec 8, 2025",  id: "202512080003", ev: "The Greene Chess Tour 4 | Scholastic & Open", sec: "K-5 Girls-Only-1D", rows: [["Regular", "386", "398/13"], ["Quick", "393", "406/13"]] },
+        { d: "Nov 8, 2025",  id: "202511080403", ev: "West Palm Beach Championship", sec: "K-3", rows: [["Regular", "unrated", "386/9"], ["Quick", "unrated", "393/9"]] }
       ];
       function baseNum(v) { return v === "unrated" ? null : parseInt(v, 10); }
       var html = "";
@@ -753,7 +758,7 @@
           return '<span class="sys-tag">' + r[0] + "</span>" + r[1] + " → " + r[2] + arrow;
         }).join("<br/>");
         html += "<tr><td class='date' style='white-space:nowrap'>" + s.d + "</td>" +
-          "<td><span class='ev'>" + s.ev + "</span><br/><span class='sec-name'>" + s.sec + "</span></td>" +
+          "<td><a class='ev ev-link' href='https://ratings.uschess.org/event/" + s.id + "' target='_blank' rel='noopener'>" + s.ev + "</a><br/><span class='sec-name'>" + s.sec + "</span></td>" +
           "<td class='chg'>" + changes + "</td></tr>";
       });
       document.getElementById("tourBody").innerHTML = html;
