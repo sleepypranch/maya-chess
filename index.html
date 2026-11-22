@@ -134,6 +134,19 @@
         display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
         background: var(--surface-2); color: var(--navy); border-radius: 6px; padding: 2px 8px; margin-left: 6px; vertical-align: 3px;
       }
+      .live-tag {
+        display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
+        background: var(--win); color: #FFFFFF; font-size: .68rem; font-weight: 900;
+        letter-spacing: .1em; vertical-align: 3px;
+      }
+      .rcard .pub {
+        margin-top: 12px; padding-top: 10px; font-size: .94rem; font-weight: 600; line-height: 1.45;
+        border-top: 1px solid var(--line);
+      }
+      .rcard .pub strong { font-weight: 900; }
+      .ratings .rcard:first-child .pub { color: #CFE7FB; border-top-color: rgba(169,214,245,.35); }
+      .ratings .rcard:first-child .pub strong { color: #FFFFFF; }
+      .ratings .rcard:last-child .pub { color: #123B7A; border-top-color: rgba(11,42,91,.18); }
       .online-note { margin-top: 12px; font-size: .9rem; color: var(--ink-soft); font-weight: 600; }
 
       /* ---------- Sections ---------- */
@@ -456,19 +469,21 @@
 
     <div class="wrap">
       <!-- Ratings -->
-      <div class="ratings" role="group" aria-label="Current published ratings">
+      <div class="ratings" role="group" aria-label="Current live ratings, with published ratings below">
         <div class="rcard">
-          <div class="sys">Regular</div>
-          <div class="big" id="ratingRegular">645</div>
+          <div class="sys">Regular<span class="live-tag">Live</span></div>
+          <div class="big" id="ratingRegular">614</div>
+          <div class="pub" id="publishedRegular">Published Dec 2026: <strong>594</strong> · Nov list was 645</div>
           <div class="meta">Floor 150</div>
         </div>
         <div class="rcard">
-          <div class="sys">Quick</div>
-          <div class="big" id="ratingQuick">641</div>
+          <div class="sys">Quick<span class="live-tag">Live</span></div>
+          <div class="big" id="ratingQuick">612</div>
+          <div class="pub" id="publishedQuick">Published Dec 2026: <strong>591</strong> · Nov list was 641</div>
           <div class="meta">Floor 150</div>
         </div>
       </div>
-      <p class="online-note">Online ratings (Regular, Quick): not yet rated.</p>
+      <p class="online-note">Live ratings are her post-event ratings after the Nov 21 tournament. Published ratings are the official monthly US Chess list. Online ratings (Regular, Quick): not yet rated.</p>
 
       <!-- Top 100 -->
       <section aria-labelledby="t100-h">
@@ -489,7 +504,7 @@
               <div class="tp current"><span class="pt"><span class="rk">#97</span></span><span class="mo">Oct 2026</span><span class="tag">Latest</span></div>
             </div>
           </div>
-          <p class="also">On the October 2026 list at <strong>#97</strong> with a list rating of 632 — the monthly lists are published from an earlier supplement, so they trail her current 645. She also appears at <strong>#98</strong> on the Girls Age 8 (Any Fed) list for October 2026.</p>
+          <p class="also">On the October 2026 list at <strong>#97</strong> with a list rating of 632 — the monthly lists are published from an earlier supplement, so they trail the 645 on her November list — her live rating after Nov 21 is 614, and the December published list is 594. She also appears at <strong>#98</strong> on the Girls Age 8 (Any Fed) list for October 2026.</p>
         </div>
       </section>
 
@@ -788,22 +803,73 @@
       document.getElementById("tourBody").innerHTML = html;
 
       // ---------- Optional live refresh (embedded data above stays if this fails) ----------
+      // Headline numbers are LIVE post-event ratings, taken from the most recent
+      // section's postRating per system — NOT from the member object, whose
+      // ratings[] are the published monthly values and lag behind.
+      // Published numbers below come from the rating supplements.
       (function () {
         if (!window.fetch) return;
-        var ctrl = ("AbortController" in window) ? new AbortController() : null;
-        var timer = null;
-        if (ctrl) timer = setTimeout(function () { ctrl.abort(); }, 6000);
-        fetch("https://ratings-api.uschess.org/api/v1/members/32560807", ctrl ? { signal: ctrl.signal } : {})
-          .then(function (r) { if (!r.ok) throw new Error("bad status"); return r.json(); })
-          .then(function (m) {
-            if (timer) clearTimeout(timer);
-            if (!m || !m.ratings) return;
-            var bySys = {};
-            m.ratings.forEach(function (x) { bySys[x.ratingSystem] = x; });
-            function num(el, v) { if (v != null) document.getElementById(el).textContent = fmt(v); }
-            if (bySys.R && bySys.R.rating != null) num("ratingRegular", bySys.R.rating);
-            if (bySys.Q && bySys.Q.rating != null) num("ratingQuick", bySys.Q.rating);
-            document.getElementById("srcLine").classList.add("live");
+        var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        function getJSON(url) {
+          var ctrl = ("AbortController" in window) ? new AbortController() : null;
+          var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6000) : null;
+          return fetch(url, ctrl ? { signal: ctrl.signal } : {})
+            .then(function (r) { if (timer) clearTimeout(timer); if (!r.ok) throw new Error("bad status"); return r.json(); });
+        }
+        function markLive() { document.getElementById("srcLine").classList.add("live"); }
+        // Live ratings: newest section first; first postRating seen per system wins
+        // (Blitz-only sections in between are skipped automatically).
+        getJSON("https://ratings-api.uschess.org/api/v1/members/32560807/sections?Size=100")
+          .then(function (data) {
+            var items = (data && data.items) || [];
+            if (!items.length) return;
+            var live = {};
+            items.forEach(function (it) {
+              (it.ratingRecords || []).forEach(function (rec) {
+                if ((rec.ratingSource === "R" || rec.ratingSource === "Q") && live[rec.ratingSource] == null && rec.postRating != null) {
+                  live[rec.ratingSource] = rec.postRating;
+                }
+              });
+            });
+            if (live.R != null) document.getElementById("ratingRegular").textContent = fmt(live.R);
+            if (live.Q != null) document.getElementById("ratingQuick").textContent = fmt(live.Q);
+            if (live.R != null || live.Q != null) markLive();
+          })
+          .catch(function () { /* offline or API blocked: baked-in snapshot remains */ });
+        // Published ratings: the LATEST supplement is the published rating —
+        // supplements are released ahead of their effective month (the Dec 2026
+        // list, 594/591, was already published on Nov 22). The prior month's
+        // list is shown after it for context.
+        getJSON("https://ratings-api.uschess.org/api/v1/members/32560807/rating-supplements?Size=100")
+          .then(function (data) {
+            var items = ((data && data.items) || []).slice();
+            if (!items.length) return;
+            items.sort(function (a, b) { return a.ratingSupplementDate < b.ratingSupplementDate ? 1 : -1; });
+            var cur = items[0], prev = items[1] || null;
+            function supVal(it, sys) {
+              if (!it) return null;
+              var found = null;
+              (it.ratings || []).forEach(function (x) { if (x.source === sys && x.rating != null) found = x.rating; });
+              return found;
+            }
+            function supLabel(it) {
+              var p = it.ratingSupplementDate.split("-");
+              return MON[parseInt(p[1], 10) - 1] + " " + p[0];
+            }
+            function supMon(it) {
+              var p = it.ratingSupplementDate.split("-");
+              return MON[parseInt(p[1], 10) - 1];
+            }
+            function render(el, sys) {
+              var v = supVal(cur, sys);
+              if (v == null) return;
+              var s = "Published " + supLabel(cur) + ": <strong>" + fmt(v) + "</strong>";
+              var pv = supVal(prev, sys);
+              if (prev && pv != null) s += " · " + supMon(prev) + " list was " + fmt(pv);
+              document.getElementById(el).innerHTML = s;
+            }
+            render("publishedRegular", "R");
+            render("publishedQuick", "Q");
           })
           .catch(function () { /* offline or API blocked: baked-in snapshot remains */ });
       })();
